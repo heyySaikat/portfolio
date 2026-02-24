@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saikat Debnath - Portfolio</title>
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="heyySaikat | Portfolio" />
+  <meta name="description"
+    content="Portfolio of Saikat Debnath, a full-stack developer building modern websites and custom software. Specializing in fast, reliable, and scalable digital solutions for businesses and startups." />
+  <meta name="keywords"
+    content="Saikat Debnath, heyySaikat, Full-Stack Developer, Web Developer, Custom Software, Business Websites, Landing Pages, Portfolio" />
+  <meta name="author" content="Saikat Debnath" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#171613" />
+  <link rel="canonical" href="https://heyysaikat.in/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://heyysaikat.in/" />
+  <meta property="og:title" content="heyySaikat | Portfolio" />
+  <meta property="og:description"
+    content="Portfolio of Saikat Debnath, a full-stack developer building modern websites and custom software. Specializing in fast, reliable, and scalable digital solutions for businesses and startups." />
+  <meta property="og:image" content="https://heyysaikat.in/assets/socialPreview.webp" />
+  <meta property="og:image:type" content="image/webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://heyysaikat.in/" />
+  <meta property="twitter:title" content="heyySaikat | Portfolio" />
+  <meta property="twitter:description"
+    content="Portfolio of Saikat Debnath, a full-stack developer building modern websites and custom software. Specializing in fast, reliable, and scalable digital solutions for businesses and startups." />
+  <meta property="twitter:image" content="https://heyysaikat.in/assets/socialPreview.webp" />
+  <meta property="twitter:site" content="@heyysaikat" />
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://esm.sh/three@0.165.0",
+        "postprocessing": "https://esm.sh/postprocessing@6.36.2?external=three"
+      }
+    }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Saikat Debnath",
+    "url": "https://heyysaikat.in",
+    "image": "https://heyysaikat.in/assets/socialPreview.webp",
+    "jobTitle": "Full-Stack Developer",
+    "sameAs": [
+      "https://github.com/heyysaikat",
+      "https://linkedin.com/in/heyysaikat",
+      "https://instagram.com/heyysaikat"
+    ]
+  }
+  </script>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <link rel="apple-touch-icon" href="assets/favicon.ico" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Fira+Sans:wght@700&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <div class="page">
+    <section class="hero">
+      <img class="hero__image" src="assets/heroBG.webp" alt="Hero Background" loading="eager" fetchpriority="high" />
+      <div class="hero__overlay"></div>
+      <header class="hero__header">
+        <div class="brand">
+          <a href="/" aria-label="Home" style="display: flex; align-items: center; text-decoration: none;">
+            <img class="brand__logo" src="assets/heyySaikat.webp" alt="heyySaikat">
+          </a>
+        </div>
+        <button class="burger-menu" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="stacking-navbar" id="stackingNavbar">
+          <a href="#projects" class="stacking-navbar__item" style="--index: 0;">Projects</a>
+          <a href="#services" class="stacking-navbar__item" style="--index: 1;">Services</a>
+          <a href="#about" class="stacking-navbar__item" style="--index: 2;">About Me</a>
+          <a href="#contact" class="stacking-navbar__item" style="--index: 3;">Contact</a>
+        </div>
+      </header>
+      <div class="hero__content">
+        <p class="eyebrow">I’m Saikat Debnath</p>
+        <p class="subtitle">Full-Stack Developer<br />Building real-world, modern applications.</p>
+        <div class="hero__actions">
+          <a class="btn btn--solid" href="assets/Saikat-Debnath_Full-Stack-Dev.pdf"
+            download="Saikat-Debnath_Full-Stack-Dev.pdf">Download CV<span class="arrow">→</span></a>
+          <a class="btn btn--outline" href="https://linkedin.com/in/heyysaikat" target="_blank" rel="noreferrer">View
+            LinkedIn<span class="arrow">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <main class="main">
+      <section class="intro">
+        <div id="lights" class="lights"></div>
+        <h1>Experience delivering deployed websites and custom software that solve real business problems.</h1>
+      </section>
+
+      <section id="projects" class="section">
+        <h2>Featured Projects</h2>
+        <div class="grid">
+          <div class="reveal reveal-left">
+            <a href="https://h2othemultigym.in" target="_blank" rel="noopener noreferrer"
+              style="text-decoration: none; color: inherit; display: block; cursor: pointer; transition: transform 0.2s ease;"
+              onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+              <article class="card" style="height: 100%;">
+                <div class="card__media" style="background-image:url('./assets/h2othemultigym.in_ss_cover.webp')">
+                </div>
+
+                <div class="card__meta">
+                  <span>H2O The MultiGym Site</span>
+                  <img class="arrow" src="assets/link.svg" alt="link"
+                    style="width: 12px; height: 12px; filter: invert(0.88); vertical-align: middle;" />
+                </div>
+              </article>
+            </a>
+          </div>
+          <div class="reveal reveal-bottom">
+            <a href="ae.html"
+              style="text-decoration: none; color: inherit; display: block; cursor: pointer; transition: transform 0.2s ease;"
+              onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+              <article class="card" style="height: 100%;">
+                <div class="card__media" style="background-image:url('assets/airpackExpress_ss_cover.webp')">
+                </div>
+                <div class="card__meta">
+                  <span>Airpack Express Logistics System</span>
+                  <img class="arrow" src="assets/link.svg" alt="link"
+                    style="width: 12px; height: 12px; filter: invert(0.88); vertical-align: middle;" />
+                </div>
+              </article>
+            </a>
+          </div>
+          <div class="reveal reveal-right">
+            <a href="djm.html"
+              style="text-decoration: none; color: inherit; display: block; cursor: pointer; transition: transform 0.2s ease;"
+              onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+              <article class="card" style="height: 100%;">
+                <div class="card__media" style="background-image:url('assets/deshbandhuJewellery_ss_cover.webp')">
+                </div>
+                <div class="card__meta">
+                  <span>Deshbandhu Jewellery System</span>
+                  <img class="arrow" src="assets/link.svg" alt="link"
+                    style="width: 12px; height: 12px; filter: invert(0.88); vertical-align: middle;" />
+                </div>
+              </article>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="section columns">
+        <div>
+          <h2>Services</h2>
+          <div class="stack">
+            <div class="pill reveal reveal-bottom">
+              <div class="pill__title"><span>Landing Pages</span><span>1-2 weeks</span></div>
+              <div class="pill__meta"><span>High-quality landing pages for businesses and brands</span></div>
+            </div>
+            <div class="pill reveal reveal-bottom">
+              <div class="pill__title"><span>Business Websites</span><span>2-4 weeks</span></div>
+              <div class="pill__meta"><span>Professional websites for companies and services</span></div>
+            </div>
+            <div class="pill reveal reveal-bottom">
+              <div class="pill__title"><span>Custom Software</span><span>3–6 weeks</span></div>
+              <div class="pill__meta"><span>Custom software to automate workflows and improve efficiency</span></div>
+            </div>
+            <div class="pill reveal reveal-bottom">
+              <div class="pill__title"><span>Maintenance & Improvements</span><span>Ongoing</span></div>
+              <div class="pill__meta"><span>Ongoing support, updates and performance improvements</span></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h2>Experience</h2>
+          <div class="stack">
+            <div class="pill reveal reveal-bottom">
+              <div class="pill__title">Web Developer</div>
+              <div class="pill__meta"><span>H2O The MultiGym</span><span>2024</span></div>
+            </div>
+            <div class="pill reveal reveal-bottom">
+              <div class="pill__title">Software Developer</div>
+              <div class="pill__meta"><span>Airpack Express</span><span>2025</span></div>
+            </div>
+            <div class="pill reveal reveal-bottom">
+              <div class="pill__title">Software Developer</div>
+              <div class="pill__meta"><span>Deshbandhu Jewellery Museum</span><span>2025</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section reveal reveal-bottom">
+        <div class="columns" style="gap: 48px;">
+          <div>
+            <h3
+              style="color: var(--subtle); font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 24px;">
+              About me</h3>
+            <div class="about">
+              <p>I design and build complete digital solutions, including modern websites and custom software tailored
+                to
+                real business needs. My work focuses on creating products that are clean, reliable, and built to
+                perform.
+              </p>
+              <p>I help clients turn ideas into practical, scalable solutions. Whether it’s building an online presence
+                or
+                developing software to improve workflows, I focus on delivering results that add real value.</p>
+              <p>I believe in thoughtful design, strong functionality, and attention to detail. My goal is to create
+                dependable digital products that clients can trust and grow with.</p>
+            </div>
+            <div>
+              <h3 class="leadership-heading"
+                style="color: var(--subtle); font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 24px;">
+                Leadership & Involvement</h3>
+              <div class="stack">
+                <div class="pill reveal reveal-bottom">
+                  <div class="pill__title"><span>Vice President</span><span>IEM Magazine Club • 2025–2026</span></div>
+                  <div class="pill__meta" style="white-space: normal; line-height: 1.5; margin-top: 8px;"><span>Led
+                      editorial and design coordination for the official college magazine, managing contributors and
+                      ensuring timely publication.</span></div>
+                </div>
+                <div class="pill reveal reveal-bottom">
+                  <div class="pill__title"><span>Student Development Program Participant</span><span>Asian Institute of
+                      Technology, Thailand • 2025</span></div>
+                  <div class="pill__meta" style="white-space: normal; line-height: 1.5; margin-top: 8px;">
+                    <span>Collaborated in cross-cultural technical discussions and sustainability-focused projects.
+                      Worked with international participants, strengthening communication, problem-solving, and
+                      professional collaboration skills.</span>
+                  </div>
+                </div>
+                <div class="pill reveal reveal-bottom">
+                  <div class="pill__title"><span>Event Organizer</span><span>Hackolution 2K26 Hackathon • 2026</span>
+                  </div>
+                  <div class="pill__meta" style="white-space: normal; line-height: 1.5; margin-top: 8px;">
+                    <span>Directed the event’s visual identity and managed the graphics team, ensuring high-quality
+                      design execution and a polished, cohesive experience.</span>
+                  </div>
+                </div>
+                <div class="pill reveal reveal-bottom">
+                  <div class="pill__title"><span>Workshop Lead</span><span>Graphics Design & Poster Making • 2025</span>
+                  </div>
+                  <div class="pill__meta" style="white-space: normal; line-height: 1.5; margin-top: 8px;">
+                    <span>Conducted
+                      hands-on workshop for over 100 students, mentoring them on design principles and creative
+                      tools.</span>
+                  </div>
+                </div>
+                <div class="pill reveal reveal-bottom">
+                  <div class="pill__title"><span>Graphics Head</span><span>Horizon & Beyond Magazine • 2025</span></div>
+                  <div class="pill__meta" style="white-space: normal; line-height: 1.5; margin-top: 8px;"><span>Led
+                      visual
+                      design and layout for the departmental magazine, ensuring consistent branding and professional
+                      presentation.</span></div>
+                </div>
+              </div>
+
+              <h3 class="leadership-heading"
+                style="color: var(--subtle); font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 24px; margin-top: 48px;">
+                Soundtrack</h3>
+              <a href="https://music.youtube.com/playlist?list=PL8kkTUs6SQsWGOgZG1Y80ahBckWdGEw79&si=x3Wi-E_c6U6yBXtn"
+                target="_blank" rel="noopener noreferrer" class="playlist-wrapper-link">
+                <div class="pill reveal reveal-bottom"
+                  style="display: flex; gap: 20px; align-items: center; padding: 16px;">
+                  <img src="assets/playlistThumbnail.webp" alt="Playlist Cover" class="playlist-card"
+                    style="width: 110px; height: 110px; border-radius: 8px; object-fit: cover;">
+                  <div style="flex: 1;">
+                    <!-- Only visible on mobile devices, above the On Repeat -->
+                    <img src="assets/YTMicon.svg" alt="YouTube Music Logo" class="mobile-ytm-logo"
+                      style="width: 80px; height: 80px;">
+
+                    <h4 style="font-size: 16px; margin-bottom: 4px; margin-top: 0; color: var(--text);">On Repeat</h4>
+                    <p style="font-size: 12px; color: var(--subtle); margin-bottom: 12px;">8 tracks • 38 minutes</p>
+
+                    <!-- Only visible on desktop devices -->
+                    <div class="desktop-playlist-btn"
+                      style="display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: var(--text); padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,0.05); transition: background 0.2s;">
+                      <img src="assets/YTMicon.svg" alt="YouTube Music"
+                        style="width: 14px; height: 14px; filter: invert(0.88);">
+                      Open in YouTube Music
+                    </div>
+                  </div>
+                  <!-- Right-aligned, vertically centered YouTube Music logo for Desktop only -->
+                  <img src="assets/YTMicon.svg" alt="YouTube Music Logo" class="desktop-only-icon"
+                    style="width: 100px; height:100px; margin-right:15px; margin-left: auto; opacity: 0.8;">
+                </div>
+              </a>
+
+            </div>
+          </div>
+      </section>
+
+      <section id="contact" class="cta reveal reveal-bottom">
+        <div>
+          <h3>Available for freelance projects and collaborations.</h3>
+          <p>Have a project in mind? Let’s build it together.</p>
+          <p>Typically respond within 24 hours.</p>
+        </div>
+        <a class="btn btn--solid" href="mailto:heyysaikat@gmail.com">heyysaikat@gmail.com</a>
+      </section>
+
+      <footer class="footer">
+        <span>© 2026 All rights reserved. Built by Saikat Debnath.</span>
+        <div class="footer__links">
+          <a href="https://github.com/heyysaikat" target="_blank" rel="noopener noreferrer">
+            github
+          </a>
+          <a href="https://linkedin.com/in/heyysaikat" target="_blank" rel="noopener noreferrer">
+            linkedin
+          </a>
+          <a href="https://x.com/heyySaikat" target="_blank" rel="noopener noreferrer" class="hide-on-mobile">
+            twitter
+          </a>
+          <a href="https://instagram.com/heyysaikat" target="_blank" rel="noopener noreferrer">
+            instagram
+          </a>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script type="module" src="script.js"></script>
+</body>
+
+</html>

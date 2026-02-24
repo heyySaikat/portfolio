@@ -1,0 +1,661 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  color-scheme: dark;
+  --bg: #171613;
+  --panel: #1a1a1a;
+  --muted: #a0a0a0;
+  --text: #e0e0e0;
+  --subtle: #666;
+  --line: rgba(224, 224, 224, 0.1);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  font-family: "JetBrains Mono", monospace;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.page {
+  min-height: 100vh;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 450px;
+  max-height: 750px;
+  /* Cap height to prevent breaking in simulated desktop viewports on tall screens */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.hero__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(23, 22, 19, 0.1) 0%, #171613 85%);
+}
+
+.hero__header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 48px;
+  transition: padding 0.3s ease;
+}
+
+.hero__header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: transparent;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+  pointer-events: none;
+}
+
+.hero__header.scrolled {
+  padding: 20px 48px;
+}
+
+.hero__header.scrolled::before {
+  background-color: rgba(23, 22, 19, 0.2);
+  /* Dark glass effect */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Removed inverted logo, dark text, and dark burger menu overrides */
+
+/* Override scrolled styles when menu is active */
+.hero__header.active::before {
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+  border-bottom: none !important;
+}
+
+.hero__header.active .brand img {
+  filter: none !important;
+}
+
+.hero__header.active .burger-menu span {
+  background-color: #fff !important;
+}
+
+.brand {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 24px;
+  color: #fff;
+  line-height: 0;
+}
+
+.brand__logo {
+  height: 32px;
+}
+
+/* Stacking Navbar */
+.stacking-navbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  margin-right: 20px;
+}
+
+/* Base style for Desktop - Hidden Burger */
+.burger-menu {
+  display: none;
+}
+
+.stacking-navbar__item {
+  display: flex;
+  align-items: center;
+  padding: 12px 24px;
+  background: rgba(176, 170, 170, 0.1);
+  /* #b0aaaa1a */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 24px;
+  text-decoration: none;
+  color: var(--text);
+  /* Adapted for Dark Theme */
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  /* Subtle border for visibility */
+}
+
+/* Hover State */
+.stacking-navbar__item:hover {
+  background-color: #000;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  padding: 0 48px;
+  max-width: 720px;
+  width: 100%;
+}
+
+.eyebrow {
+  font-size: 50px;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 25px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 16px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.btn--solid {
+  background: var(--text);
+  color: #121212;
+}
+
+.btn--outline {
+  border: 2px solid var(--text);
+  color: var(--text);
+}
+
+.arrow {
+  font-size: 16px;
+}
+
+.main {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 80px 24px 64px;
+}
+
+.intro {
+  height: 400px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lights {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 100vw;
+  height: 600px;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 50%, transparent 90%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 50%, transparent 90%);
+}
+
+.lights canvas {
+  width: 100%;
+  height: 100%;
+}
+
+
+.intro h1 {
+  text-align: center;
+  font-size: 32px;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+.intro p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.section {
+  margin-top: 64px;
+}
+
+.section h2 {
+  color: var(--subtle);
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.leadership-heading {
+  margin-top: 48px;
+}
+
+@media (max-width: 768px) {
+  .leadership-heading {
+    margin-top: 48px;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: var(--panel);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.card__media {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  filter: saturate(0.4);
+}
+
+.card__meta {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px 16px;
+  font-size: 14px;
+}
+
+.dot {
+  color: var(--text);
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 48px;
+}
+
+.stack {
+  display: grid;
+  gap: 16px;
+}
+
+.pill {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(224, 224, 224, 0.08);
+  border-radius: 16px;
+  padding: 20px 24px;
+}
+
+.pill__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+  .pill__title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+
+.pill__title span:last-child {
+  font-size: 12px;
+  color: var(--subtle);
+  font-weight: normal;
+}
+
+.pill__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  color: var(--subtle);
+  font-size: 12px;
+}
+
+.about {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(224, 224, 224, 0.08);
+  border-radius: 16px;
+  padding: 32px;
+  display: grid;
+  gap: 22px;
+  color: var(--muted);
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.cta {
+  margin-top: 64px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 32px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  align-items: center;
+}
+
+.cta h3 {
+  font-size: 20px;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.cta p {
+  color: var(--subtle);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 32px;
+  color: #444;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer__links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer__links a {
+  font-size: 14px;
+  color: #444;
+  text-decoration: none;
+}
+
+.footer__links a:hover {
+  color: var(--text);
+}
+
+.hero__header.active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+
+
+
+
+@media (max-width: 768px) {
+  .hero {
+    height: 100vh;
+    height: 100svh;
+    max-height: none;
+    /* Let it fill naturally on real mobile devices */
+  }
+
+  .hero__header {
+    flex-direction: row;
+    align-items: center;
+    padding: 24px;
+    /* position: relative; Removed to allow sticky/fixed from desktop styles to persist */
+  }
+
+  .brand__logo {
+    height: 24px;
+  }
+
+  /* Burger Menu */
+  .burger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 200;
+    /* Above overlay */
+    padding: 0;
+  }
+
+  .burger-menu span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Burger Animation for Active State */
+  .burger-menu.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  .burger-menu.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger-menu.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+
+  /* Mobile Stacking Navbar: Overlay */
+  .stacking-navbar {
+    position: absolute;
+    top: 100%;
+    right: 24px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 16px;
+    margin-right: 0;
+
+    /* Hidden by default */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: all 0.3s ease-in-out;
+    z-index: 150;
+  }
+
+  /* Visible State */
+  .stacking-navbar.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .stacking-navbar__item {
+    transform: none !important;
+    /* Reset stacking transform for simple vertical list */
+    pointer-events: auto;
+    background: rgba(23, 22, 19, 0.2);
+    /* Lighter background to allow blur effect to show */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Disable hover expanson on mobile, rely on toggle */
+  .stacking-navbar:hover .stacking-navbar__item,
+  .stacking-navbar:focus-within .stacking-navbar__item,
+  .stacking-navbar.expanded .stacking-navbar__item {
+    transform: none !important;
+  }
+
+  .hero__content {
+    position: absolute;
+    bottom: 70px;
+    left: 0;
+    width: 100%;
+    padding: 0 24px;
+    text-align: left;
+  }
+
+  .eyebrow {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .about {
+    text-align: left;
+  }
+
+  .cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .intro h1 {
+    font-size: 20px;
+  }
+}
+
+/* Scroll Reveal Animations */
+.reveal {
+  opacity: 0;
+  visibility: hidden;
+  will-change: opacity, transform;
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.8s;
+}
+
+.reveal.reveal-left {
+  transform: translateX(-40px);
+}
+
+.reveal.reveal-right {
+  transform: translateX(40px);
+}
+
+.reveal.reveal-bottom {
+  transform: translateY(40px);
+}
+
+.reveal.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, 0);
+}
+
+.playlist-card {
+  border: 1px solid transparent;
+  /* Need a base transparent border so standard line width activates on hover */
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.playlist-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--line);
+}
+
+/* Make entire wrapper clickable and stylish */
+a.playlist-wrapper-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  border-radius: 16px;
+  transition: background-color 0.2s ease;
+}
+
+a.playlist-wrapper-link:hover {
+  background: rgba(255, 255, 255, 0.05);
+  /* Slight illumination when hovering the entire block */
+}
+
+a.playlist-wrapper-link:hover .playlist-card {
+  border-color: var(--line);
+  transform: translateY(-2px);
+}
+
+/* Default state: Hide mobile elements */
+.mobile-ytm-logo {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-only-icon {
+    display: none !important;
+  }
+
+  .desktop-playlist-btn {
+    display: none !important;
+  }
+
+  .hide-on-mobile {
+    display: none !important;
+  }
+
+  .mobile-ytm-logo {
+    display: block;
+    margin-bottom: 2px;
+    /* Breathing room above "On Repeat" */
+  }
+}

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jewellery Management System - Portfolio</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Deshbandhu Jewellery Management System - Portfolio" />
+    <meta name="description"
+        content="A modern, user-friendly billing and inventory management system specifically tailored for jewellery shops. Built with Python and Tkinter for reliable native desktop experience." />
+    <meta name="keywords"
+        content="Jewellery Management System, Billing Software, Inventory Management, Python Tkinter, Desktop Application, Saikat Debnath Portfolio" />
+    <meta name="author" content="Saikat Debnath" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#171613" />
+    <link rel="canonical" href="https://heyysaikat.in/djm.html" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://heyysaikat.in/djm.html" />
+    <meta property="og:title" content="Deshbandhu Jewellery Management System - Portfolio" />
+    <meta property="og:description"
+        content="A modern, user-friendly billing and inventory management system specifically tailored for jewellery shops. Built with Python and Tkinter for reliable native desktop experience." />
+    <meta property="og:image" content="https://heyysaikat.in/assets/socialPreview.webp" />
+    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://heyysaikat.in/djm.html" />
+    <meta property="twitter:title" content="Deshbandhu Jewellery Management System - Portfolio" />
+    <meta property="twitter:description"
+        content="A modern, user-friendly billing and inventory management system specifically tailored for jewellery shops. Built with Python and Tkinter for reliable native desktop experience." />
+    <meta property="twitter:image" content="https://heyysaikat.in/assets/socialPreview.webp" />
+    <meta property="twitter:site" content="@heyysaikat" />
+
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://esm.sh/three@0.165.0",
+        "postprocessing": "https://esm.sh/postprocessing@6.36.2?external=three"
+      }
+    }
+  </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Saikat Debnath",
+      "url": "https://heyysaikat.in",
+      "image": "https://heyysaikat.in/assets/socialPreview.webp",
+      "jobTitle": "Full-Stack Developer",
+      "sameAs": [
+        "https://github.com/heyysaikat",
+        "https://linkedin.com/in/heyysaikat",
+        "https://instagram.com/heyysaikat"
+      ]
+    }
+    </script>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="apple-touch-icon" href="assets/favicon.ico" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Fira+Sans:wght@700&display=swap"
+        rel="stylesheet" />
+    <style>
+        /* Custom page-specific overrides keeping it consistent with global CSS */
+        .hero-details {
+            padding-top: 140px;
+            padding-bottom: 64px;
+            text-align: left;
+        }
+
+        .hero-details h1 {
+            font-size: 40px;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        .hero-details p {
+            font-size: 18px;
+            color: var(--muted);
+            max-width: 800px;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .back-btn-container {
+            margin-bottom: 32px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .gallery-item {
+            aspect-ratio: 16 / 9;
+            background: var(--panel);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            font-size: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .hero-details h1 {
+                font-size: 28px;
+            }
+
+            .hero-details p {
+                font-size: 16px;
+            }
+
+            .hero-details {
+                padding-top: 100px;
+                padding-bottom: 40px;
+            }
+        }
+
+        /* Lightbox Modal */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            object-fit: contain;
+            /* Will constrain non-16:9 fully within screen bounds */
+            transition: transform 0.3s ease;
+            transform: scale(0.95);
+        }
+
+        .lightbox.active .lightbox-content {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: 300;
+            cursor: pointer;
+            line-height: 1;
+            z-index: 1001;
+            user-select: none;
+            transition: color 0.2s ease;
+        }
+
+        .lightbox-close:hover {
+            color: var(--muted);
+        }
+
+        .gallery-item {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <header class="hero__header scrolled">
+            <div class="brand">
+                <a href="/" aria-label="Home" style="display: flex; align-items: center; text-decoration: none;">
+                    <img class="brand__logo" src="assets/heyySaikat.webp" alt="heyySaikat">
+                </a>
+            </div>
+            <button class="burger-menu" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="stacking-navbar" id="stackingNavbar">
+                <a href="index.html#projects" class="stacking-navbar__item" style="--index: 0;">Projects</a>
+                <a href="index.html#services" class="stacking-navbar__item" style="--index: 1;">Services</a>
+                <a href="index.html#about" class="stacking-navbar__item" style="--index: 2;">About</a>
+                <a href="index.html#contact" class="stacking-navbar__item" style="--index: 3;">Contact</a>
+            </div>
+        </header>
+
+        <main class="main">
+            <section class="hero-details reveal reveal-bottom">
+                <div class="back-btn-container">
+                    <a class="btn btn--outline" href="index.html"
+                        onclick="if(document.referrer.includes(window.location.host)) { window.history.back(); return false; }">
+                        <span class="arrow">←</span> Back
+                    </a>
+                </div>
+                <h1>Deshbandhu Jewellery Management System</h1>
+                <p>A modern, user-friendly billing and inventory management system for jewellery shops.</p>
+            </section>
+
+            <section class="section">
+                <h2>Preview Gallery</h2>
+                <div class="gallery-grid">
+                    <!-- Placeholders for screenshots -->
+                    <div class="gallery-item reveal reveal-bottom"><img src="assets/djm_ss/DJM - 1.webp" alt="djm_ss_1">
+                    </div>
+                    <div class="gallery-item reveal reveal-bottom"><img src="assets/djm_ss/DJM - 2.webp" alt="djm_ss_2">
+                    </div>
+                    <div class="gallery-item reveal reveal-bottom"><img src="assets/djm_ss/DJM - 3.webp" alt="djm_ss_3">
+                    </div>
+                    <div class="gallery-item reveal reveal-bottom"><img src="assets/djm_ss/DJM - 4.webp" alt="djm_ss_4">
+                    </div>
+                    <div class="gallery-item reveal reveal-bottom"><img src="assets/djm_ss/DJM - 5.webp" alt="djm_ss_5">
+                    </div>
+                    <div class="gallery-item reveal reveal-bottom"><img src="assets/djm_ss/DJM - 6.webp" alt="djm_ss_6">
+                    </div>
+                    <div class="gallery-item reveal reveal-bottom"><img src="assets/djm_ss/DJM - 7.webp" alt="djm_ss_7">
+                    </div>
+                </div>
+            </section>
+
+            <section class="section reveal reveal-bottom">
+                <h2>Project Overview</h2>
+                <div class="about">
+                    <p>
+                        A modern, user-friendly billing and inventory management system specifically tailored for
+                        jewellery shops. Built with Python and Tkinter, it provides a fast and reliable native desktop
+                        experience without requiring an active internet connection.
+                    </p>
+                    <p>
+                        It seamlessly handles complex daily operations such as secure billing, ongoing stock management,
+                        new purchases processing, dedicated customer schemes, and complete GST-compliant invoice
+                        generation ensuring all legal and tax requirements are strictly met in generated reports.
+                    </p>
+                </div>
+            </section>
+
+            <section class="section columns">
+                <div style="grid-column: 1 / -1;">
+                    <h2>Key Features</h2>
+                    <div class="stack">
+                        <div class="pill reveal reveal-bottom">
+                            <div class="pill__title"><span>Intuitive Billing</span></div>
+                            <div class="pill__meta"><span>Create, print, and manage bills with GST, old gold/silver, and
+                                    multiple payment modes.</span></div>
+                        </div>
+                        <div class="pill reveal reveal-bottom">
+                            <div class="pill__title"><span>Stock Management</span></div>
+                            <div class="pill__meta"><span>Track finished and unfinished items, auto-update stock
+                                    instantly on billing and purchase.</span></div>
+                        </div>
+                        <div class="pill reveal reveal-bottom">
+                            <div class="pill__title"><span>Purchases</span></div>
+                            <div class="pill__meta"><span>Record new stock purchases and accurately update semi-finished
+                                    stock availability.</span></div>
+                        </div>
+                        <div class="pill reveal reveal-bottom">
+                            <div class="pill__title"><span>Comprehensive Dashboard</span></div>
+                            <div class="pill__meta"><span>View, search, and securely print past bills alongside a
+                                    detailed monthly sales summary.</span></div>
+                        </div>
+                        <div class="pill reveal reveal-bottom">
+                            <div class="pill__title"><span>Monthly Customer Scheme</span></div>
+                            <div class="pill__meta"><span>Efficiently manage specialized scheme customers and closely
+                                    track their recurring payments.</span></div>
+                        </div>
+                        <div class="pill reveal reveal-bottom">
+                            <div class="pill__title"><span>Rates & Taxes</span></div>
+                            <div class="pill__meta"><span>Instantly update daily gold/silver market rates and adjusting
+                                    GST percentages.</span></div>
+                        </div>
+                        <div class="pill reveal reveal-bottom">
+                            <div class="pill__title"><span>Automatic Backups</span></div>
+                            <div class="pill__meta"><span>Secure weekly database backup routines automatically writing
+                                    directly to C://Backup (Windows).</span></div>
+                        </div>
+                        <div class="pill reveal reveal-bottom">
+                            <div class="pill__title"><span>Automatic PDF Cleanup</span></div>
+                            <div class="pill__meta"><span>System hygiene tasks ensuring old generated bill PDFs are
+                                    deleted monthly to save storage.</span></div>
+                        </div>
+                        <div class="pill reveal reveal-bottom">
+                            <div class="pill__title"><span>Robust Invoice Regeneration</span></div>
+                            <div class="pill__meta"><span>Strictly accurate invoices can be completely regenerated from
+                                    the database at any moment in time.</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="footer reveal reveal-bottom" style="margin-top: 64px;">
+                <span>© 2026 All rights reserved. Built by Saikat Debnath.</span>
+                <div class="footer__links">
+                    <a href="https://github.com/heyysaikat" target="_blank" rel="noopener noreferrer">github</a>
+                    <a href="https://linkedin.com/in/heyysaikat" target="_blank" rel="noopener noreferrer">linkedin</a>
+                    <a href="https://instagram.com/heyysaikat" target="_blank" rel="noopener noreferrer">instagram</a>
+                </div>
+            </footer>
+
+            <!-- Lightbox Modal -->
+            <div id="lightbox" class="lightbox">
+                <span class="lightbox-close">&times;</span>
+                <img class="lightbox-content" id="lightbox-img" src="" alt="Fullscreen Preview">
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const closeBtn = document.querySelector('.lightbox-close');
+            const galleryItems = document.querySelectorAll('.gallery-item img');
+
+            const closeLightbox = () => {
+                lightbox.classList.remove('active');
+                setTimeout(() => {
+                    lightbox.style.display = 'none';
+                    lightboxImg.src = '';
+                }, 300); // Wait for transition
+            };
+
+            galleryItems.forEach(img => {
+                img.addEventListener('click', () => {
+                    lightbox.style.display = 'flex';
+                    // Force a reflow for transition to work
+                    void lightbox.offsetWidth;
+                    lightbox.classList.add('active');
+                    lightboxImg.src = img.src;
+                });
+            });
+
+            closeBtn.addEventListener('click', closeLightbox);
+
+            lightbox.addEventListener('click', (e) => {
+                if (e.target !== lightboxImg) {
+                    closeLightbox();
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                    closeLightbox();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
